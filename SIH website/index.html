@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Jharkhand - Land of Forests</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+            <option value="te">తెలుగు</option>
+        </select>
+    </div>
+
+    <!-- Weather Alert Widget -->
+    <div class="weather-alert" id="weatherAlert">
+        <div class="weather-content">
+            <i class="fas fa-cloud-sun"></i>
+            <div class="weather-info">
+                <span id="weatherLocation">Ranchi</span>
+                <span id="weatherTemp">--°C</span>
+                <span id="weatherCondition">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Animation Container -->
+    <div id="threejs-container"></div>
+
+    <!-- Main Content -->
+    <div class="hero-container">
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Jharkhand Tourism" class="logo">
+            </div>
+            
+            <h1 class="hero-title" data-en="Discover Jharkhand" data-hi="झारखंड की खोज करें" data-te="జార్ఖండ్‌ను కనుగొనండి">
+                Discover Jharkhand
+            </h1>
+            
+            <p class="hero-subtitle" data-en="Land of Forests, Waterfalls & Rich Tribal Heritage" 
+               data-hi="वनों, झरनों और समृद्ध आदिवासी विरासत की भूमि" 
+               data-te="అడవులు, జలపాతాలు మరియు గొప్ప గిరిజన వారసత్వం యొక్క భూమి">
+                Land of Forests, Waterfalls & Rich Tribal Heritage
+            </p>
+
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fas fa-mountain"></i>
+                    <span data-en="100+ Waterfalls" data-hi="100+ झरने" data-te="100+ జలపాతాలు">100+ Waterfalls</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tree"></i>
+                    <span data-en="Dense Forests" data-hi="घने जंगल" data-te="దట్టమైన అడవులు">Dense Forests</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <span data-en="Tribal Culture" data-hi="आदिवासी संस्कृति" data-te="గిరిజన సంస్కృతి">Tribal Culture</span>
+                </div>
+            </div>
+
+            <button class="explore-btn" onclick="exploreJharkhand()" 
+                    data-en="Explore Jharkhand" data-hi="झारखंड का अन्वेषण करें" data-te="జార్ఖండ్‌ను అన్వేషించండి">
+                <span>Explore Jharkhand</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="floating-leaf leaf-1">🍃</div>
+            <div class="floating-leaf leaf-2">🌿</div>
+            <div class="floating-leaf leaf-3">🍃</div>
+            <div class="floating-bird">🦅</div>
+        </div>
+    </div>
+
+    <!-- Chatbot Icon -->
+    <div class="chatbot-icon" onclick="toggleChatbot()">
+        <i class="fas fa-comments"></i>
+        <span class="chatbot-tooltip" data-en="Jharkhand Tourism Assistant" 
+              data-hi="झारखंड पर्यटन सहायक" data-te="జార్ఖండ్ టూరిజం అసిస్టెంట్">
+            Jharkhand Tourism Assistant
+        </span>
+    </div>
+
+    <!-- Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-header">
+            <h3 data-en="Jharkhand Tourism Assistant" data-hi="झारखंड पर्यटन सहायक" data-te="జార్ఖండ్ టూరిజం అసిస్టెంట్">
+                Jharkhand Tourism Assistant
+            </h3>
+            <button onclick="toggleChatbot()" class="close-btn">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <span data-en="Hello! I'm your Jharkhand tourism guide. Ask me about destinations, culture, food, or festivals!" 
+                      data-hi="नमस्ते! मैं आपका झारखंड पर्यटन गाइड हूं। मुझसे गंतव्यों, संस्कृति, भोजन या त्योहारों के बारे में पूछें!" 
+                      data-te="హలో! నేను మీ జార్ఖండ్ టూరిజం గైడ్‌ని. గమ్యస్థానాలు, సంస్కృతి, ఆహారం లేదా పండుగల గురించి నన్ను అడగండి!">
+                    Hello! I'm your Jharkhand tourism guide. Ask me about destinations, culture, food, or festivals!
+                </span>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Type your question..." 
+                   data-en-placeholder="Type your question..." 
+                   data-hi-placeholder="अपना प्रश्न टाइप करें..." 
+                   data-te-placeholder="మీ ప్రశ్నను టైప్ చేయండి...">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Background Overlay -->
+    <div class="bg-overlay"></div>
+
+    <script src="index.js"></script>
+    <script>
+        // Initialize 3D Scene
+        let scene, camera, renderer, particles;
+
+        function init3D() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+            document.getElementById('threejs-container').appendChild(renderer.domElement);
+
+            // Create floating particles (representing forest elements)
+            const geometry = new THREE.BufferGeometry();
+            const particleCount = 100;
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 20;
+                positions[i + 1] = (Math.random() - 0.5) * 20;
+                positions[i + 2] = (Math.random() - 0.5) * 20;
+
+                // Green shades for forest theme
+                colors[i] = 0.2 + Math.random() * 0.3; // Red
+                colors[i + 1] = 0.6 + Math.random() * 0.4; // Green
+                colors[i + 2] = 0.2 + Math.random() * 0.3; // Blue
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.1,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            camera.position.z = 5;
+            animate3D();
+        }
+
+        function animate3D() {
+            requestAnimationFrame(animate3D);
+            
+            if (particles) {
+                particles.rotation.x += 0.001;
+                particles.rotation.y += 0.002;
+            }
+            
+            renderer.render(scene, camera);
+        }
+
+        // Initialize weather
+        function initWeather() {
+            fetchWeather('Ranchi');
+        }
+
+        function fetchWeather(city) {
+            // Using OpenWeatherMap API (you'll need to get a free API key)
+            const apiKey = 'YOUR_API_KEY'; // Replace with actual API key
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},IN&appid=${apiKey}&units=metric`;
+            
+            // For demo purposes, using mock data
+            setTimeout(() => {
+                const mockWeather = {
+                    main: { temp: 28 },
+                    weather: [{ main: 'Clear', description: 'Clear sky' }],
+                    name: city
+                };
+                updateWeatherDisplay(mockWeather);
+            }, 1000);
+        }
+
+        function updateWeatherDisplay(data) {
+            document.getElementById('weatherLocation').textContent = data.name;
+            document.getElementById('weatherTemp').textContent = `${Math.round(data.main.temp)}°C`;
+            document.getElementById('weatherCondition').textContent = data.weather[0].description;
+        }
+
+        // Language switching
+        function changeLanguage() {
+            const lang = document.getElementById('languageSelect').value;
+            const elements = document.querySelectorAll('[data-' + lang + ']');
+            
+            elements.forEach(element => {
+                const text = element.getAttribute('data-' + lang);
+                if (text) {
+                    element.textContent = text;
+                }
+            });
+
+            // Update placeholders
+            const inputs = document.querySelectorAll('[data-' + lang + '-placeholder]');
+            inputs.forEach(input => {
+                const placeholder = input.getAttribute('data-' + lang + '-placeholder');
+                if (placeholder) {
+                    input.placeholder = placeholder;
+                }
+            });
+        }
+
+        // Explore button functionality
+        function exploreJharkhand() {
+            // Add transition effect
+            gsap.to('.hero-container', {
+                duration: 1,
+                scale: 1.1,
+                opacity: 0,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    window.location.href = 'main.html';
+                }
+            });
+        }
+
+        // Chatbot functionality
+        function toggleChatbot() {
+            const modal = document.getElementById('chatbotModal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage(message, 'user');
+                input.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    const response = getBotResponse(message);
+                    addMessage(response, 'bot');
+                }, 1000);
+            }
+        }
+
+        function addMessage(message, sender) {
+            const messagesContainer = document.getElementById('chatbotMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = sender + '-message';
+            messageDiv.innerHTML = `<span>${message}</span>`;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('waterfall')) {
+                return "Jharkhand has amazing waterfalls! Visit Hundru Falls (98m), Dassam Falls, Jonha Falls, and Panchghagh Falls. Best time to visit is during monsoon season.";
+            } else if (lowerMessage.includes('food') || lowerMessage.includes('cuisine')) {
+                return "Try Jharkhand's delicious cuisine: Handia (rice beer), Rugra (mushroom curry), Dhuska (fried bread), Chilka Roti, and Thekua (sweet snack).";
+            } else if (lowerMessage.includes('festival')) {
+                return "Major festivals in Jharkhand: Sarhul (spring festival), Karma (harvest festival), Sohrai (cattle festival), and Tusu Parab (winter festival).";
+            } else if (lowerMessage.includes('hotel') || lowerMessage.includes('stay')) {
+                return "Popular hotels in Jharkhand: Radisson Blu Ranchi, Hotel Yuvraj Palace, BNR Hotel Dhanbad, and various eco-resorts near waterfalls.";
+            } else {
+                return "I can help you with information about Jharkhand's destinations, culture, food, festivals, and accommodations. What would you like to know?";
+            }
+        }
+
+        // Initialize everything
+        window.addEventListener('load', () => {
+            init3D();
+            initWeather();
+            
+            // Animate hero content
+            gsap.from('.hero-title', { duration: 1.5, y: 50, opacity: 0, ease: "power2.out" });
+            gsap.from('.hero-subtitle', { duration: 1.5, y: 30, opacity: 0, delay: 0.3, ease: "power2.out" });
+            gsap.from('.hero-features', { duration: 1.5, y: 30, opacity: 0, delay: 0.6, ease: "power2.out" });
+            gsap.from('.explore-btn', { 
+                duration: 1.5, 
+                y: 30, 
+                opacity: 0, 
+                delay: 0.9, 
+                ease: "power2.out",
+                onComplete: () => {
+                    // Ensure button is always visible after animation
+                    document.querySelector('.explore-btn').style.opacity = '1';
+                    document.querySelector('.explore-btn').style.visibility = 'visible';
+                }
+            });
+            
+            // Fallback to ensure button is visible if GSAP fails
+            setTimeout(() => {
+                const exploreBtn = document.querySelector('.explore-btn');
+                if (exploreBtn) {
+                    exploreBtn.style.opacity = '1';
+                    exploreBtn.style.visibility = 'visible';
+                    exploreBtn.style.display = 'inline-flex';
+                }
+            }, 3000);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (camera && renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+        });
+
+        // Enter key for chatbot
+        document.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && document.getElementById('chatbotModal').style.display === 'block') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

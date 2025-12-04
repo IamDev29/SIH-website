@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Jharkhand Tourism</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        /* ✅ Background image + flex layout */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url("../pic/regpic.png") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: flex-start; /* Align form to left */
+            align-items: center;
+            height: 100vh;
+            padding-left: 8%;
+        }
+
+        /* ✅ Bigger glassmorphism form */
+        .register-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 50px; /* More spacious form */
+            border-radius: 18px;
+            width: 420px; /* Wider form */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .register-container h2 {
+            margin-bottom: 25px;
+            font-size: 26px; /* Bigger heading */
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 92%;
+            padding: 14px; /* Taller input boxes */
+            margin: 12px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px; /* Larger input font */
+            outline: none;
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 16px 24px; /* Bigger button */
+            margin-top: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px; /* Bigger text on button */
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .checkbox-container {
+            margin: 12px 0;
+            text-align: left;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        .footer-link {
+            margin-top: 14px;
+            font-size: 15px;
+            color: white;
+        }
+
+        .footer-link a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* ✅ Google button alignment */
+        .g_id_signin {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ✅ Right-side motivational text */
+        .right-text {
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 32px; /* Bigger text */
+            font-weight: bold;
+            line-height: 1.4;
+            max-width: 420px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ✅ Left-side register form -->
+    <div class="register-container">
+        <h2> Register </h2>
+        <form action="/QuizApp/RegisterServlet" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="password" id="confirm" name="confirm" placeholder="Confirm Password" required>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="showPassword">
+                <label for="showPassword">Show Password</label>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <!-- ✅ Google Login Button -->
+        <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleCredentialResponse"
+             data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="signin_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+
+        <div class="footer-link">
+            Already have an account? <a href="login.jsp">Login here</a>
+        </div>
+    </div>
+
+    <!-- ✅ Right-side text -->
+    <div class="right-text">
+        THE GOAL OF LIFE IS <br> LIVING IN AGREEMENT <br> WITH NATURE.
+    </div>
+
+    <script>
+        // ✅ Password show/hide toggle
+        document.getElementById("showPassword").addEventListener("change", function() {
+            let pass = document.getElementById("password");
+            let confirm = document.getElementById("confirm");
+            let type = this.checked ? "text" : "password";
+            pass.type = type;
+            confirm.type = type;
+        });
+
+        // ✅ Handle Google login response
+        function handleCredentialResponse(response) {
+            console.log("Google JWT: ", response.credential);
+            fetch("/QuizApp/GoogleLoginServlet", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ token: response.credential })
+            }).then(res => {
+                if (res.ok) {
+                    window.location.href = "home.jsp";
+                } else {
+                    alert("Google login failed.");
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

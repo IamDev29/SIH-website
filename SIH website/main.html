@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Jharkhand - Complete Tourism Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+</head>
+<body class="main-container">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Jharkhand Tourism">
+                <span data-en="Jharkhand Tourism" data-hi="झारखंड पर्यटन" data-te="జార్ఖండ్ టూరిజం">Jharkhand Tourism</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" data-en="Home" data-hi="होम" data-te="హోమ్">Home</a></li>
+                <li><a href="#destinations" data-en="Destinations" data-hi="गंतव्य" data-te="గమ్యస్థానాలు">Destinations</a></li>
+                <li><a href="#hotels" data-en="Hotels" data-hi="होटल" data-te="హోటళ్లు">Hotels</a></li>
+                <li><a href="#guides" data-en="Guides" data-hi="गाइड" data-te="గైడ్‌లు">Guides</a></li>
+                <li><a href="#festivals" data-en="Festivals" data-hi="त्योहार" data-te="పండుగలు">Festivals</a></li>
+                <li><a href="#contact" data-en="Contact" data-hi="संपर्क" data-te="సంపర్కం">Contact</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <select id="languageSelect" onchange="jharkhandTourism.setLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+            <option value="te">తెలుగు</option>
+        </select>
+    </div>
+
+    <!-- Eco-Coins Display -->
+    <div class="eco-coins">
+        <i class="fas fa-leaf"></i>
+        <span>Eco-Coins: <span id="ecoCoins">0</span></span>
+    </div>
+
+    <!-- Weather Alert Widget -->
+    <div class="weather-alert" id="weatherAlert">
+        <div class="weather-content">
+            <i class="fas fa-cloud-sun"></i>
+            <div class="weather-info">
+                <span id="weatherLocation">Ranchi</span>
+                <span id="weatherTemp">28°C</span>
+                <span id="weatherCondition">Clear Sky</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="section">
+            <div class="hero-content">
+                <h1 class="section-title" data-en="Welcome to Jharkhand" data-hi="झारखंड में आपका स्वागत है" data-te="జార్ఖండ్‌కు స్వాగతం">
+                    Welcome to Jharkhand
+                </h1>
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9;" 
+                   data-en="Discover the land of forests, waterfalls, and rich tribal heritage" 
+                   data-hi="वनों, झरनों और समृद्ध आदिवासी विरासत की भूमि की खोज करें" 
+                   data-te="అడవులు, జలపాతాలు మరియు గొప్ప గిరిజన వారసత్వం యొక్క భూమిని కనుగొనండి">
+                    Discover the land of forests, waterfalls, and rich tribal heritage
+                </p>
+                
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button onclick="jharkhandTourism.initSouvenirScanner()" class="card-btn eco-action">
+                        <i class="fas fa-camera"></i>
+                        <span data-en="Scan Souvenirs" data-hi="स्मृति चिन्ह स्कैन करें" data-te="స్మారకాలను స్కాన్ చేయండి">Scan Souvenirs</span>
+                    </button>
+                    <button onclick="document.getElementById('budgetPlanner').scrollIntoView()" class="card-btn eco-action">
+                        <i class="fas fa-calculator"></i>
+                        <span data-en="Plan Budget" data-hi="बजट की योजना बनाएं" data-te="బడ్జెట్ ప్లాన్ చేయండి">Plan Budget</span>
+                    </button>
+                    <button onclick="document.getElementById('footprintCalculator').scrollIntoView()" class="card-btn eco-action">
+                        <i class="fas fa-route"></i>
+                        <span data-en="Calculate Route" data-hi="मार्ग की गणना करें" data-te="రూట్ లెక్కించండి">Calculate Route</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Waterfalls Section -->
+        <section id="destinations" class="section">
+            <h2 class="section-title" data-en="Magnificent Waterfalls" data-hi="शानदार झरने" data-te="అద్భుతమైన జలపాతాలు">
+                Magnificent Waterfalls
+            </h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="images/jonha falls.jpg" alt="Hundru Falls">
+                    <h3 data-en="Hundru Falls" data-hi="हुंद्रू झरना" data-te="హుండ్రూ జలపాతం">Hundru Falls</h3>
+                    <p data-en="98m high waterfall, one of the highest in Jharkhand. Best visited during monsoon season." 
+                       data-hi="98 मीटर ऊंचा झरना, झारखंड में सबसे ऊंचे झरनों में से एक। मानसून के मौसम में सबसे अच्छा।" 
+                       data-te="98 మీటర్ల ఎత్తైన జలపాతం, జార్ఖండ్‌లో అత్యధిక ఎత్తైనవాటిలో ఒకటి. వర్షాకాలంలో సందర్శించడం మంచిది.">
+                        98m high waterfall, one of the highest in Jharkhand. Best visited during monsoon season.
+                    </p>
+                    <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(3, 'Exploring waterfalls')">
+                        <span data-en="Explore" data-hi="अन्वेषण करें" data-te="అన్వేషించండి">Explore</span>
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/jonha falls.jpg" alt="Dassam Falls">
+                    <h3 data-en="Dassam Falls" data-hi="दसम झरना" data-te="దస్సం జలపాతం">Dassam Falls</h3>
+                    <p data-en="Beautiful waterfall on Kanchi River, perfect for picnics and photography." 
+                       data-hi="कांची नदी पर सुंदर झरना, पिकनिक और फोटोग्राफी के लिए बिल्कुल सही।" 
+                       data-te="కాంచి నదిపై అందమైన జలపాతం, పిక్నిక్‌లు మరియు ఫోటోగ్రఫీకి అనువైనది.">
+                        Beautiful waterfall on Kanchi River, perfect for picnics and photography.
+                    </p>
+                    <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(3, 'Exploring waterfalls')">
+                        <span data-en="Explore" data-hi="अन्वेषण करें" data-te="అన్వేషించండి">Explore</span>
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/jonha falls.jpg" alt="Jonha Falls">
+                    <h3 data-en="Jonha Falls" data-hi="जोन्हा झरना" data-te="జోన్హా జలపాతం">Jonha Falls</h3>
+                    <p data-en="Also known as Gautamdhara, this 43m waterfall is surrounded by dense forests." 
+                       data-hi="गौतमधारा के नाम से भी जाना जाता है, यह 43 मीटर का झरना घने जंगलों से घिरा है।" 
+                       data-te="గౌతమధార అని కూడా పిలుస్తారు, ఈ 43 మీటర్ల జలపాతం దట్టమైన అడవులతో చుట్టుముట్టబడి ఉంది.">
+                        Also known as Gautamdhara, this 43m waterfall is surrounded by dense forests.
+                    </p>
+                    <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(3, 'Exploring waterfalls')">
+                        <span data-en="Explore" data-hi="अन्वेषण करें" data-te="అన్వేషించండి">Explore</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotels Section -->
+        <section id="hotels" class="section">
+            <h2 class="section-title" data-en="Hotels in Jharkhand" data-hi="झारखंड में होटल" data-te="జార్ఖండ్‌లోని హోటళ్లు">
+                Hotels in Jharkhand
+            </h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="images/hotel-radisson.jpg" alt="Radisson Blu Ranchi">
+                    <h3>Radisson Blu Ranchi</h3>
+                    <p data-en="Luxury hotel in the heart of Ranchi with modern amenities and excellent service." 
+                       data-hi="आधुनिक सुविधाओं और उत्कृष्ट सेवा के साथ रांची के दिल में लक्जरी होटल।" 
+                       data-te="ఆధునిక సౌకర్యాలు మరియు అద్భుతమైన సేవతో రాంచీ నడిబొడ్డున లగ్జరీ హోటల్.">
+                        Luxury hotel in the heart of Ranchi with modern amenities and excellent service.
+                    </p>
+                    <div style="margin: 15px 0;">
+                        <span style="color: #ffd700;">★★★★★</span>
+                        <span style="margin-left: 10px; font-weight: 600;">₹4,500/night</span>
+                    </div>
+                    <button class="card-btn" onclick="jharkhandTourism.bookHotel('Radisson Blu Ranchi')">
+                        <span data-en="Book Now" data-hi="अभी बुक करें" data-te="ఇప్పుడే బుక్ చేయండి">Book Now</span>
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/hotel.webp" alt="Hotel Yuvraj Palace">
+                    <h3>Hotel Yuvraj Palace</h3>
+                    <p data-en="Comfortable mid-range hotel with traditional hospitality and modern facilities." 
+                       data-hi="पारंपरिक आतिथ्य और आधुनिक सुविधाओं के साथ आरामदायक मध्यम श्रेणी का होटल।" 
+                       data-te="సాంప్రదాయ ఆతిథ్యం మరియు ఆధునిక సౌకర్యాలతో సౌకర్యవంతమైన మధ్యతరగతి హోటల్.">
+                        Comfortable mid-range hotel with traditional hospitality and modern facilities.
+                    </p>
+                    <div style="margin: 15px 0;">
+                        <span style="color: #ffd700;">★★★★☆</span>
+                        <span style="margin-left: 10px; font-weight: 600;">₹2,800/night</span>
+                    </div>
+                    <button class="card-btn" onclick="jharkhandTourism.bookHotel('Hotel Yuvraj Palace')">
+                        <span data-en="Book Now" data-hi="अभी बुक करें" data-te="ఇప్పుడే బుక్ చేయండి">Book Now</span>
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/tribalhome.jpg" alt="Tribal Eco Resort">
+                    <h3 data-en="Tribal Eco Resort" data-hi="आदिवासी इको रिसॉर्ट" data-te="గిరిజన ఎకో రిసార్ట్">Tribal Eco Resort</h3>
+                    <p data-en="Experience authentic tribal lifestyle in eco-friendly accommodations near forests." 
+                       data-hi="जंगलों के पास पर्यावरण-अनुकूल आवास में प्रामाणिक आदिवासी जीवनशैली का अनुभव करें।" 
+                       data-te="అడవుల దగ్గర పర్యావరణ అనుకూల వసతిలో ప్రామాణిక గిరిజన జీవనశైలిని అనుభవించండి.">
+                        Experience authentic tribal lifestyle in eco-friendly accommodations near forests.
+                    </p>
+                    <div style="margin: 15px 0;">
+                        <span style="color: #ffd700;">★★★☆☆</span>
+                        <span style="margin-left: 10px; font-weight: 600;">₹1,800/night</span>
+                    </div>
+                    <button class="card-btn eco-action" onclick="jharkhandTourism.bookHotel('Tribal Eco Resort')">
+                        <span data-en="Book Eco-Stay" data-hi="इको-स्टे बुक करें" data-te="ఎకో-స్టే బుక్ చేయండి">Book Eco-Stay</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tour Guides Section -->
+        <section id="guides" class="section">
+            <h2 class="section-title" data-en="Top Guides in Jharkhand" data-hi="झारखंड के शीर्ष गाइड" data-te="జార్ఖండ్‌లోని టాప్ గైడ్‌లు">
+                Top Guides in Jharkhand
+            </h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="images/tourguide.webp" alt="Ramesh Kumar">
+                    <h3>Ramesh Kumar</h3>
+                    <p data-en="Expert tribal culture guide with 15 years experience. Specializes in Sarhul and Karma festivals." 
+                       data-hi="15 साल के अनुभव के साथ विशेषज्ञ आदिवासी संस्कृति गाइड। सरहुल और कर्मा त्योहारों में विशेषज्ञता।" 
+                       data-te="15 సంవత్సరాల అనుభవంతో నిపుణుడైన గిరిజన సంస్కృతి గైడ్. సర్హుల్ మరియు కర్మ పండుగలలో నైపుణ్యం.">
+                        Expert tribal culture guide with 15 years experience. Specializes in Sarhul and Karma festivals.
+                    </p>
+                    <div style="margin: 15px 0;">
+                        <span style="color: #ffd700;">★★★★★</span>
+                        <span style="margin-left: 10px; font-weight: 600;">₹1,500/day</span>
+                    </div>
+                    <button class="card-btn" onclick="jharkhandTourism.bookGuide('Ramesh Kumar')">
+                        <span data-en="Book Guide" data-hi="गाइड बुक करें" data-te="గైడ్ బుక్ చేయండి">Book Guide</span>
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/tourwala.jpg" alt="Priya Devi">
+                    <h3>Priya Devi</h3>
+                    <p data-en="Nature and wildlife expert. Perfect for waterfall tours and forest trekking adventures." 
+                       data-hi="प्रकृति और वन्यजीव विशेषज्ञ। झरना पर्यटन और वन ट्रेकिंग रोमांच के लिए बिल्कुल सही।" 
+                       data-te="ప్రకృతి మరియు వన్యప్రాణుల నిపుణుడు. జలపాత పర్యటనలు మరియు అడవి ట్రెక్కింగ్ సాహసాలకు అనువైనది.">
+                        Nature and wildlife expert. Perfect for waterfall tours and forest trekking adventures.
+                    </p>
+                    <div style="margin: 15px 0;">
+                        <span style="color: #ffd700;">★★★★☆</span>
+                        <span style="margin-left: 10px; font-weight: 600;">₹1,200/day</span>
+                    </div>
+                    <button class="card-btn eco-action" onclick="jharkhandTourism.bookGuide('Priya Devi')">
+                        <span data-en="Book Eco-Guide" data-hi="इको-गाइड बुक करें" data-te="ఎకో-గైడ్ బుక్ చేయండి">Book Eco-Guide</span>
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/tourguide.webp" alt="Suresh Oraon">
+                    <h3>Suresh Oraon</h3>
+                    <p data-en="Traditional handicraft and art specialist. Learn about Dokra art and Sohrai paintings." 
+                       data-hi="पारंपरिक हस्तशिल्प और कला विशेषज्ञ। डोकरा कला और सोहराई चित्रकारी के बारे में जानें।" 
+                       data-te="సాంప్రదాయ హస్తకళలు మరియు కళా నిపుణుడు. డోక్రా కళ మరియు సోహ్రాయ్ పెయింటింగ్‌ల గురించి తెలుసుకోండి.">
+                        Traditional handicraft and art specialist. Learn about Dokra art and Sohrai paintings.
+                    </p>
+                    <div style="margin: 15px 0;">
+                        <span style="color: #ffd700;">★★★★★</span>
+                        <span style="margin-left: 10px; font-weight: 600;">₹1,800/day</span>
+                    </div>
+                    <button class="card-btn" onclick="jharkhandTourism.bookGuide('Suresh Oraon')">
+                        <span data-en="Book Guide" data-hi="गाइड बुक करें" data-te="గైడ్ బుక్ చేయండి">Book Guide</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Festivals Section -->
+        <section id="festivals" class="section">
+            <h2 class="section-title" data-en="Jharkhand Festivals" data-hi="झारखंड के त्योहार" data-te="జార్ఖండ్ పండుగలు">
+                Jharkhand Festivals
+            </h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <img src="images/sohrai.webp" alt="Sarhul Festival">
+                    <h3 data-en="Sarhul Festival" data-hi="सरहुल त्योहार" data-te="సర్హుల్ పండుగ">Sarhul Festival</h3>
+                    <p data-en="Spring festival celebrating nature and new beginnings. Worship of Sal trees and nature spirits." 
+                       data-hi="प्रकृति और नई शुरुआत का जश्न मनाने वाला वसंत त्योहार। साल के पेड़ों और प्रकृति आत्माओं की पूजा।" 
+                       data-te="ప్రకృతి మరియు కొత్త ప్రారంభాలను జరుపుకునే వసంత పండుగ. సాల్ చెట్లు మరియు ప్రకృతి ఆత్మల పూజ.">
+                        Spring festival celebrating nature and new beginnings. Worship of Sal trees and nature spirits.
+                    </p>
+                    <div style="margin: 15px 0; color: #a8e6a3; font-weight: 600;">
+                        <i class="fas fa-calendar"></i> March - April
+                    </div>
+                    <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about festivals')">
+                        <span data-en="Learn More" data-hi="और जानें" data-te="మరింత తెలుసుకోండి">Learn More</span>
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/sohrai.avif" alt="Karma Festival">
+                    <h3 data-en="Karma Festival" data-hi="कर्मा त्योहार" data-te="కర్మ పండుగ">Karma Festival</h3>
+                    <p data-en="Harvest festival dedicated to Karma tree. Celebrates brotherhood, prosperity, and good fortune." 
+                       data-hi="कर्मा वृक्ष को समर्पित फसल त्योहार। भाईचारे, समृद्धि और सौभाग्य का जश्न मनाता है।" 
+                       data-te="కర్మ చెట్టుకు అంకితమైన పంట పండుగ. సోదరత్వం, శ్రేయస్సు మరియు అదృష్టాన్ని జరుపుకుంటుంది.">
+                        Harvest festival dedicated to Karma tree. Celebrates brotherhood, prosperity, and good fortune.
+                    </p>
+                    <div style="margin: 15px 0; color: #a8e6a3; font-weight: 600;">
+                        <i class="fas fa-calendar"></i> August - September
+                    </div>
+                    <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about festivals')">
+                        <span data-en="Learn More" data-hi="और जानें" data-te="మరింత తెలుసుకోండి">Learn More</span>
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <img src="images/sohrai.webp" alt="Sohrai Festival">
+                    <h3 data-en="Sohrai Festival" data-hi="सोहराई त्योहार" data-te="సోహ్రాయ్ పండుగ">Sohrai Festival</h3>
+                    <p data-en="Cattle festival with beautiful wall paintings. Honors livestock and celebrates harvest season." 
+                       data-hi="सुंदर दीवार चित्रों के साथ पशु त्योहार। पशुधन का सम्मान करता है और फसल के मौसम का जश्न मनाता है।" 
+                       data-te="అందమైన గోడ చిత్రాలతో పశువుల పండుగ. పశువులను గౌరవిస్తుంది మరియు పంట కాలాన్ని జరుపుకుంటుంది.">
+                        Cattle festival with beautiful wall paintings. Honors livestock and celebrates harvest season.
+                    </p>
+                    <div style="margin: 15px 0; color: #a8e6a3; font-weight: 600;">
+                        <i class="fas fa-calendar"></i> October - November
+                    </div>
+                    <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about festivals')">
+                        <span data-en="Learn More" data-hi="और जानें" data-te="మరింత తెలుసుకోండి">Learn More</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section">
+            <h2 class="section-title" data-en="Experience Jharkhand" data-hi="झारखंड का अनुभव करें" data-te="జార్ఖండ్‌ను అనుభవించండి">
+                Experience Jharkhand
+            </h2>
+            
+            <!-- Food Section -->
+            <div style="margin-bottom: 60px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 30px; text-align: center; color: #a8e6a3;" 
+                    data-en="Traditional Cuisine" data-hi="पारंपरिक व्यंजन" data-te="సాంప్రదాయ వంటకాలు">
+                    Traditional Cuisine
+                </h3>
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="images/handia.jpg" alt="Handia">
+                        <h3>Handia</h3>
+                        <p data-en="Traditional rice beer, a fermented drink enjoyed during festivals and celebrations." 
+                           data-hi="पारंपरिक चावल की बीयर, त्योहारों और समारोहों के दौरान आनंदित किया जाने वाला किण्वित पेय।" 
+                           data-te="సాంప్రదాయ బియ్యం బీర్, పండుగలు మరియు వేడుకల సమయంలో ఆనందించే పులియబెట్టిన పానీయం.">
+                            Traditional rice beer, a fermented drink enjoyed during festivals and celebrations.
+                        </p>
+                        <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(2, 'Exploring cuisine')">
+                            <span data-en="Try Now" data-hi="अभी आज़माएं" data-te="ఇప్పుడు ప్రయత్నించండి">Try Now</span>
+                        </button>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="images/dhuska.jpg" alt="Dhuska">
+                        <h3>Dhuska</h3>
+                        <p data-en="Deep-fried bread made from rice and lentil batter, served with curry or chutney." 
+                           data-hi="चावल और दाल के घोल से बना तला हुआ ब्रेड, करी या चटनी के साथ परोसा जाता है।" 
+                           data-te="బియ్యం మరియు పప్పుల పిండితో చేసిన వేయించిన రొట్టె, కూర లేదా చట్నీతో వడ్డిస్తారు.">
+                            Deep-fried bread made from rice and lentil batter, served with curry or chutney.
+                        </p>
+                        <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(2, 'Exploring cuisine')">
+                            <span data-en="Try Now" data-hi="अभी आज़माएं" data-te="ఇప్పుడు ప్రయత్నించండి">Try Now</span>
+                        </button>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="images/chilkaRoti.jpg" alt="Chilka Roti">
+                        <h3>Chilka Roti</h3>
+                        <p data-en="Thin, crispy flatbread made from rice flour, perfect with tribal vegetables." 
+                           data-hi="चावल के आटे से बनी पतली, कुरकुरी फ्लैटब्रेड, आदिवासी सब्जियों के साथ बिल्कुल सही।" 
+                           data-te="బియ్యం పిండితో చేసిన సన్నని, కరకరలాడే రొట్టె, గిరిజన కూరగాయలతో అద్భుతం.">
+                            Thin, crispy flatbread made from rice flour, perfect with tribal vegetables.
+                        </p>
+                        <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(2, 'Exploring cuisine')">
+                            <span data-en="Try Now" data-hi="अभी आज़माएं" data-te="ఇప్పుడు ప్రయత్నించండి">Try Now</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Art & Craft Section -->
+            <div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 30px; text-align: center; color: #a8e6a3;" 
+                    data-en="Art & Craft" data-hi="कला और शिल्प" data-te="కళ మరియు హస్తకళలు">
+                    Art & Craft
+                </h3>
+                <div class="cards-grid">
+                    <div class="card">
+                        <img src="images/dokraArt.jpg" alt="Dokra Art">
+                        <h3 data-en="Dokra Art" data-hi="डोकरा कला" data-te="డోక్రా కళ">Dokra Art</h3>
+                        <p data-en="Ancient metal casting technique creating beautiful brass figurines and decorative items." 
+                           data-hi="प्राचीन धातु कास्टिंग तकनीक जो सुंदर पीतल की मूर्तियां और सजावटी वस्तुएं बनाती है।" 
+                           data-te="అందమైన ఇత్తడి బొమ్మలు మరియు అలంకార వస్తువులను సృష్టించే పురాతన లోహ కాస్టింగ్ సాంకేతికత.">
+                            Ancient metal casting technique creating beautiful brass figurines and decorative items.
+                        </p>
+                        <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(4, 'Supporting local artisans')">
+                            <span data-en="Buy Authentic" data-hi="प्रामाणिक खरीदें" data-te="ప్రామాణికమైనది కొనండి">Buy Authentic</span>
+                        </button>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="images/sohrai.webp" alt="Sohrai Painting">
+                        <h3 data-en="Sohrai Painting" data-hi="सोहराई चित्रकारी" data-te="సోహ్రాయ్ పెయింటింగ్">Sohrai Painting</h3>
+                        <p data-en="Traditional wall art depicting animals and nature, created during Sohrai festival." 
+                           data-hi="सोहराई त्योहार के दौरान बनाई गई जानवरों और प्रकृति को दर्शाने वाली पारंपरिक दीवार कला।" 
+                           data-te="సోహ్రాయ్ పండుగ సమయంలో సృష్టించబడిన జంతువులు మరియు ప్రకృతిని వర్ణించే సాంప్రదాయ గోడ కళ.">
+                            Traditional wall art depicting animals and nature, created during Sohrai festival.
+                        </p>
+                        <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(4, 'Supporting local artisans')">
+                            <span data-en="Learn Art" data-hi="कला सीखें" data-te="కళ నేర్చుకోండి">Learn Art</span>
+                        </button>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="images/wood-carvings.jpg" alt="Bamboo Craft">
+                        <h3 data-en="Bamboo Craft" data-hi="बांस शिल्प" data-te="వెదురు హస్తకళలు">Bamboo Craft</h3>
+                        <p data-en="Eco-friendly handicrafts made from bamboo, including baskets, furniture, and decorative items." 
+                           data-hi="बांस से बने पर्यावरण-अनुकूल हस्तशिल्प, जिसमें टोकरी, फर्नीचर और सजावटी वस्तुएं शामिल हैं।" 
+                           data-te="వెదురుతో చేసిన పర్యావరణ అనుకూల హస్తకళలు, బుట్టలు, ఫర్నిచర్ మరియు అలంకార వస్తువులతో సహా.">
+                            Eco-friendly handicrafts made from bamboo, including baskets, furniture, and decorative items.
+                        </p>
+                        <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(6, 'Supporting eco-friendly crafts')">
+                            <span data-en="Buy Eco-Craft" data-hi="इको-क्राफ्ट खरीदें" data-te="ఎకో-క్రాఫ్ట్ కొనండి">Buy Eco-Craft</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Festivals Section -->
+        <section id="festivals" class="section">
+            <div class="container">
+                <h2 class="section-title" data-en="🎉 Festivals of Jharkhand" data-hi="🎉 झारखंड के त्योहार" data-te="🎉 జార్ఖండ్ పండుగలు">🎉 Festivals of Jharkhand</h2>
+                <p class="section-subtitle" data-en="Experience the rich tribal culture and traditions through vibrant festivals" 
+                   data-hi="जीवंत त्योहारों के माध्यम से समृद्ध आदिवासी संस्कृति और परंपराओं का अनुभव करें" 
+                   data-te="రంగురంగుల పండుగల ద్వారా గొప్ప గిరిజన సంస్కృతి మరియు సంప్రదాయాలను అనుభవించండి">
+                   Experience the rich tribal culture and traditions through vibrant festivals
+                </p>
+                
+                <div class="festival-grid">
+                    <!-- Sarhul Festival -->
+                    <div class="festival-card featured">
+                        <div class="festival-image">
+                            <img src="images/sohrai.webp" alt="Sarhul Festival">
+                            <div class="festival-badge">Spring Festival</div>
+                        </div>
+                        <div class="festival-info">
+                            <h3>🌸 Sarhul Festival</h3>
+                            <p class="festival-date">📅 March - April (Chaitra Month)</p>
+                            <p class="festival-description">The most important festival of Jharkhand, celebrating the blossoming of Sal trees and the arrival of spring. Tribal communities worship nature and pray for prosperity.</p>
+                            <div class="festival-highlights">
+                                <span class="highlight">🌳 Sal Tree Worship</span>
+                                <span class="highlight">🎭 Traditional Dance</span>
+                                <span class="highlight">🥁 Tribal Music</span>
+                            </div>
+                            <div class="festival-actions">
+                                <button class="card-btn primary" onclick="showFestivalDetails('sarhul')">Learn More</button>
+                                <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about Sarhul Festival')">+5 Eco-Coins</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Karma Festival -->
+                    <div class="festival-card">
+                        <div class="festival-image">
+                            <img src="images/bol-bam.jpg" alt="Karma Festival">
+                            <div class="festival-badge">Harvest Festival</div>
+                        </div>
+                        <div class="festival-info">
+                            <h3>🌾 Karma Festival</h3>
+                            <p class="festival-date">📅 August - September (Bhadra Month)</p>
+                            <p class="festival-description">Celebrated to honor the Karma tree and seek blessings for good harvest. Young people perform traditional Karma dance around the sacred tree.</p>
+                            <div class="festival-highlights">
+                                <span class="highlight">🌳 Karma Tree</span>
+                                <span class="highlight">💃 Karma Dance</span>
+                                <span class="highlight">🎵 Folk Songs</span>
+                            </div>
+                            <div class="festival-actions">
+                                <button class="card-btn primary" onclick="showFestivalDetails('karma')">Learn More</button>
+                                <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about Karma Festival')">+5 Eco-Coins</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sohrai Festival -->
+                    <div class="festival-card">
+                        <div class="festival-image">
+                            <img src="images/sohrai.avif" alt="Sohrai Festival">
+                            <div class="festival-badge">Cattle Festival</div>
+                        </div>
+                        <div class="festival-info">
+                            <h3>🐄 Sohrai Festival</h3>
+                            <p class="festival-date">📅 October - November (Post-Harvest)</p>
+                            <p class="festival-description">Festival dedicated to cattle and livestock. Houses are decorated with beautiful Sohrai paintings, and cattle are worshipped for their contribution to agriculture.</p>
+                            <div class="festival-highlights">
+                                <span class="highlight">🎨 Sohrai Art</span>
+                                <span class="highlight">🐄 Cattle Worship</span>
+                                <span class="highlight">🏠 Wall Paintings</span>
+                            </div>
+                            <div class="festival-actions">
+                                <button class="card-btn primary" onclick="showFestivalDetails('sohrai')">Learn More</button>
+                                <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about Sohrai Festival')">+5 Eco-Coins</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tusu Parab -->
+                    <div class="festival-card">
+                        <div class="festival-image">
+                            <img src="images/tribalhome.jpg" alt="Tusu Parab">
+                            <div class="festival-badge">Winter Festival</div>
+                        </div>
+                        <div class="festival-info">
+                            <h3>❄️ Tusu Parab</h3>
+                            <p class="festival-date">📅 December - January (Poush Month)</p>
+                            <p class="festival-description">Winter festival celebrating the harvest season. Young girls carry decorated Tusu dolls and sing traditional songs while visiting houses.</p>
+                            <div class="festival-highlights">
+                                <span class="highlight">🪆 Tusu Dolls</span>
+                                <span class="highlight">🎶 Traditional Songs</span>
+                                <span class="highlight">🎁 House Visits</span>
+                            </div>
+                            <div class="festival-actions">
+                                <button class="card-btn primary" onclick="showFestivalDetails('tusu')">Learn More</button>
+                                <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about Tusu Parab')">+5 Eco-Coins</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Karam Festival -->
+                    <div class="festival-card">
+                        <div class="festival-image">
+                            <img src="images/dokraArt.jpg" alt="Karam Festival">
+                            <div class="festival-badge">Youth Festival</div>
+                        </div>
+                        <div class="festival-info">
+                            <h3>🌿 Karam Festival</h3>
+                            <p class="festival-date">📅 September (Bhadra Month)</p>
+                            <p class="festival-description">Festival of youth and fertility, dedicated to Karam Devta. Unmarried girls observe fast and pray for good husbands while dancing around Karam branches.</p>
+                            <div class="festival-highlights">
+                                <span class="highlight">🌿 Karam Branches</span>
+                                <span class="highlight">👭 Girls' Festival</span>
+                                <span class="highlight">🙏 Prayers & Fasting</span>
+                            </div>
+                            <div class="festival-actions">
+                                <button class="card-btn primary" onclick="showFestivalDetails('karam')">Learn More</button>
+                                <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about Karam Festival')">+5 Eco-Coins</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jani Shikar -->
+                    <div class="festival-card">
+                        <div class="festival-image">
+                            <img src="images/wood-carvings.jpg" alt="Jani Shikar">
+                            <div class="festival-badge">Hunting Festival</div>
+                        </div>
+                        <div class="festival-info">
+                            <h3>🏹 Jani Shikar</h3>
+                            <p class="festival-date">📅 April - May (Baisakh Month)</p>
+                            <p class="festival-description">Traditional hunting festival where tribal communities participate in collective hunting activities, followed by community feasts and celebrations.</p>
+                            <div class="festival-highlights">
+                                <span class="highlight">🏹 Traditional Hunting</span>
+                                <span class="highlight">🤝 Community Unity</span>
+                                <span class="highlight">🍽️ Community Feast</span>
+                            </div>
+                            <div class="festival-actions">
+                                <button class="card-btn primary" onclick="showFestivalDetails('jani')">Learn More</button>
+                                <button class="card-btn eco-action" onclick="jharkhandTourism.addEcoCoins(5, 'Learning about Jani Shikar')">+5 Eco-Coins</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Festival Calendar -->
+                <div class="festival-calendar">
+                    <h3>🗓️ Festival Calendar</h3>
+                    <div class="calendar-grid">
+                        <div class="month-card">
+                            <h4>March-April</h4>
+                            <p>🌸 Sarhul Festival</p>
+                        </div>
+                        <div class="month-card">
+                            <h4>April-May</h4>
+                            <p>🏹 Jani Shikar</p>
+                        </div>
+                        <div class="month-card">
+                            <h4>August-September</h4>
+                            <p>🌾 Karma Festival</p>
+                        </div>
+                        <div class="month-card">
+                            <h4>September</h4>
+                            <p>🌿 Karam Festival</p>
+                        </div>
+                        <div class="month-card">
+                            <h4>October-November</h4>
+                            <p>🐄 Sohrai Festival</p>
+                        </div>
+                        <div class="month-card">
+                            <h4>December-January</h4>
+                            <p>❄️ Tusu Parab</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cultural Significance -->
+                <div class="cultural-info">
+                    <h3>🎭 Cultural Significance</h3>
+                    <div class="culture-grid">
+                        <div class="culture-item">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Nature Worship</h4>
+                            <p>Most festivals celebrate the relationship between humans and nature</p>
+                        </div>
+                        <div class="culture-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Community Bonding</h4>
+                            <p>Festivals strengthen social ties and community relationships</p>
+                        </div>
+                        <div class="culture-item">
+                            <i class="fas fa-seedling"></i>
+                            <h4>Agricultural Cycle</h4>
+                            <p>Celebrations align with farming seasons and harvest cycles</p>
+                        </div>
+                        <div class="culture-item">
+                            <i class="fas fa-music"></i>
+                            <h4>Cultural Heritage</h4>
+                            <p>Traditional music, dance, and art forms are preserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Multimedia Section -->
+        <section class="section multimedia-section">
+            <h2 class="section-title" data-en="Immersive Jharkhand Experience" data-hi="झारखंड का गहन अनुभव" data-te="జార్ఖండ్ లోతైన అనుభవం">
+                Immersive Jharkhand Experience
+            </h2>
+            
+            <!-- Multimedia Navigation Tabs -->
+            <div class="multimedia-tabs">
+                <button class="multimedia-tab active" onclick="jharkhandTourism.switchMultimediaTab('audio')" data-en="Audio Journey" data-hi="ऑडियो यात्रा" data-te="ఆడియో ప్రయాణం">Audio Journey</button>
+                <button class="multimedia-tab" onclick="jharkhandTourism.switchMultimediaTab('video')" data-en="Video Gallery" data-hi="वीडियो गैलरी" data-te="వీడియో గ్యాలరీ">Video Gallery</button>
+                <button class="multimedia-tab" onclick="jharkhandTourism.switchMultimediaTab('virtual')" data-en="Virtual Tours" data-hi="वर्चुअल टूर" data-te="వర్చువల్ టూర్స్">Virtual Tours</button>
+                <button class="multimedia-tab" onclick="jharkhandTourism.switchMultimediaTab('stories')" data-en="Audio Stories" data-hi="ऑडियो कहानियां" data-te="ఆడియో కథలు">Audio Stories</button>
+            </div>
+
+            <!-- Audio Journey Tab -->
+            <div id="audio-content" class="multimedia-content active">
+                <div class="audio-playlist-container">
+                    <div class="main-audio-player">
+                        <div class="audio-info">
+                            <h3 id="current-track-title">Waterfall Sounds</h3>
+                            <p id="current-track-description">Cascading waterfalls of Jharkhand</p>
+                        </div>
+                        <div class="audio-controls">
+                            <button class="control-btn" onclick="jharkhandTourism.previousTrack()">⏮</button>
+                            <button class="control-btn play-pause" id="main-play-btn" onclick="jharkhandTourism.toggleMainAudio()">▶</button>
+                            <button class="control-btn" onclick="jharkhandTourism.nextTrack()">⏭</button>
+                        </div>
+                        <div class="audio-progress">
+                            <input type="range" id="audio-progress" min="0" max="100" value="0" onchange="jharkhandTourism.seekAudio(this.value)">
+                            <div class="time-display">
+                                <span id="current-time">0:00</span>
+                                <span id="total-time">0:00</span>
+                            </div>
+                        </div>
+                        <audio id="main-audio" preload="metadata"></audio>
+                    </div>
+                    
+                    <div class="playlist">
+                        <h4 data-en="Soundscape Playlist" data-hi="ध्वनि परिदृश्य प्लेलिस्ट" data-te="సౌండ్‌స్కేప్ ప్లేలిస్ట్">Soundscape Playlist</h4>
+                        <div class="playlist-items">
+                            <div class="playlist-item active" data-src="sounds/waterfall-sounds-259625.mp3" data-title="Waterfall Sounds" data-description="Cascading waterfalls of Jharkhand">
+                                <div class="playlist-icon">💧</div>
+                                <div class="playlist-info">
+                                    <h5>Waterfall Sounds</h5>
+                                    <p>4:20</p>
+                                </div>
+                            </div>
+                            <div class="playlist-item" data-src="sounds/birds-near-waterfall-324855.mp3" data-title="Birds Near Waterfall" data-description="Melodious bird calls near cascading waters">
+                                <div class="playlist-icon">🐦</div>
+                                <div class="playlist-info">
+                                    <h5>Birds Near Waterfall</h5>
+                                    <p>5:30</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Gallery Tab -->
+            <div id="video-content" class="multimedia-content">
+                <div class="video-gallery">
+                    <div class="featured-video">
+                        <video id="featured-video" controls poster="images/background.jpg">
+                            <source src="videos/jharkhand-overview.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-info">
+                            <h3 id="featured-video-title">Discover Jharkhand</h3>
+                            <p id="featured-video-description">A comprehensive journey through the beauty of Jharkhand</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-thumbnails">
+                        <div class="video-thumbnail active" data-src="videos/jharkhand-overview.mp4" data-title="Discover Jharkhand" data-description="A comprehensive journey through the beauty of Jharkhand">
+                            <img src="images/wallpaper.jpg" alt="Jharkhand Overview">
+                            <div class="play-overlay">▶</div>
+                            <h5>Jharkhand Overview</h5>
+                        </div>
+                        <div class="video-thumbnail" data-src="videos/baidyanath-temple.mp4" data-title="Baidyanath Dham" data-description="Sacred temple and spiritual journey">
+                            <img src="images/dewri-mandir.jpg" alt="Baidyanath Temple">
+                            <div class="play-overlay">▶</div>
+                            <h5>Baidyanath Dham</h5>
+                        </div>
+                        <div class="video-thumbnail" data-src="videos/tribal-dance.mp4" data-title="Tribal Culture" data-description="Traditional dances and cultural heritage">
+                            <img src="images/sohrai.webp" alt="Tribal Dance">
+                            <div class="play-overlay">▶</div>
+                            <h5>Tribal Culture</h5>
+                        </div>
+                        <div class="video-thumbnail" data-src="videos/waterfalls.mp4" data-title="Waterfalls" data-description="Spectacular waterfalls of Jharkhand">
+                            <img src="images/jonha falls.jpg" alt="Waterfalls">
+                            <div class="play-overlay">▶</div>
+                            <h5>Waterfalls</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Tours Tab -->
+            <div id="virtual-content" class="multimedia-content">
+                <div class="virtual-tours">
+                    <h3 data-en="360° Virtual Experiences" data-hi="360° वर्चुअल अनुभव" data-te="360° వర్చువల్ అనుభవాలు">360° Virtual Experiences</h3>
+                    <div class="virtual-tour-grid">
+                        <div class="virtual-tour-card" onclick="jharkhandTourism.openVirtualTour('temple')">
+                            <div class="virtual-preview">
+                                <img src="images/dewri-mandir.jpg" alt="Temple Virtual Tour">
+                                <div class="virtual-overlay">
+                                    <div class="virtual-icon">🔄</div>
+                                    <p>360° View</p>
+                                </div>
+                            </div>
+                            <h4>Baidyanath Temple</h4>
+                            <p>Explore the sacred temple in 360°</p>
+                        </div>
+                        
+                        <div class="virtual-tour-card" onclick="jharkhandTourism.openVirtualTour('waterfall')">
+                            <div class="virtual-preview">
+                                <img src="images/jonha falls.jpg" alt="Waterfall Virtual Tour">
+                                <div class="virtual-overlay">
+                                    <div class="virtual-icon">🔄</div>
+                                    <p>360° View</p>
+                                </div>
+                            </div>
+                            <h4>Jonha Falls</h4>
+                            <p>Experience the majestic waterfall</p>
+                        </div>
+                        
+                        <div class="virtual-tour-card" onclick="jharkhandTourism.openVirtualTour('forest')">
+                            <div class="virtual-preview">
+                                <img src="images/background.jpg" alt="Forest Virtual Tour">
+                                <div class="virtual-overlay">
+                                    <div class="virtual-icon">🔄</div>
+                                    <p>360° View</p>
+                                </div>
+                            </div>
+                            <h4>Forest Sanctuary</h4>
+                            <p>Walk through pristine forests</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio Stories Tab -->
+            <div id="stories-content" class="multimedia-content">
+                <div class="audio-stories">
+                    <h3 data-en="Folklore & Legends" data-hi="लोककथाएं और किंवदंतियां" data-te="జానపద కథలు & పురాణాలు">Folklore & Legends</h3>
+                    <div class="stories-grid">
+                        <div class="story-card" onclick="jharkhandTourism.playStory('birsa-munda')">
+                            <div class="story-image">
+                                <img src="images/tribalhome.jpg" alt="Birsa Munda Story">
+                                <div class="story-play-btn">🎧</div>
+                            </div>
+                            <div class="story-content">
+                                <h4>Legend of Birsa Munda</h4>
+                                <p>The inspiring story of the tribal freedom fighter</p>
+                                <span class="story-duration">12:30</span>
+                            </div>
+                        </div>
+                        
+                        <div class="story-card" onclick="jharkhandTourism.playStory('sohrai-origin')">
+                            <div class="story-image">
+                                <img src="images/sohrai.webp" alt="Sohrai Origin">
+                                <div class="story-play-btn">🎧</div>
+                            </div>
+                            <div class="story-content">
+                                <h4>Origin of Sohrai Festival</h4>
+                                <p>Ancient traditions and cultural significance</p>
+                                <span class="story-duration">8:45</span>
+                            </div>
+                        </div>
+                        
+                        <div class="story-card" onclick="jharkhandTourism.playStory('tribal-wisdom')">
+                            <div class="story-image">
+                                <img src="images/dokraArt.jpg" alt="Tribal Wisdom">
+                                <div class="story-play-btn">🎧</div>
+                            </div>
+                            <div class="story-content">
+                                <h4>Tribal Wisdom Tales</h4>
+                                <p>Ancient knowledge and life lessons</p>
+                                <span class="story-duration">15:20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Virtual Tour Modal -->
+            <div id="virtual-tour-modal" class="modal">
+                <div class="modal-content virtual-modal">
+                    <span class="close" onclick="jharkhandTourism.closeVirtualTour()">&times;</span>
+                    <div class="virtual-tour-viewer">
+                        <div id="virtual-tour-container">
+                            <div class="virtual-placeholder">
+                                <h3>360° Virtual Tour</h3>
+                                <p>Use your mouse to look around and explore</p>
+                                <div class="virtual-controls">
+                                    <button onclick="jharkhandTourism.resetVirtualView()">Reset View</button>
+                                    <button onclick="jharkhandTourism.toggleVirtualFullscreen()">Fullscreen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Features -->
+        <section class="section">
+            <h2 class="section-title" data-en="Plan Your Journey" data-hi="अपनी यात्रा की योजना बनाएं" data-te="మీ ప్రయాణాన్ని ప్లాన్ చేయండి">
+                Plan Your Journey
+            </h2>
+            
+            <!-- Trip Budget Planner -->
+            <div id="budgetPlanner" class="form-container" style="margin-bottom: 40px;">
+                <h3 style="margin-bottom: 20px; color: white;" 
+                    data-en="Trip Budget Planner" data-hi="यात्रा बजट योजनाकार" data-te="ట్రిప్ బడ్జెట్ ప్లానర్">
+                    Trip Budget Planner
+                </h3>
+                <div class="form-group">
+                    <label data-en="Destination" data-hi="गंतव्य" data-te="గమ్యస్థానం">Destination</label>
+                    <select id="destination">
+                        <option value="">Select Destination</option>
+                        <option value="Ranchi">Ranchi</option>
+                        <option value="Jamshedpur">Jamshedpur</option>
+                        <option value="Dhanbad">Dhanbad</option>
+                        <option value="Bokaro">Bokaro</option>
+                        <option value="Deoghar">Deoghar</option>
+                        <option value="Netarhat">Netarhat</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label data-en="Duration (days)" data-hi="अवधि (दिन)" data-te="వ్యవధి (రోజులు)">Duration (days)</label>
+                    <input type="number" id="duration" min="1" max="30" value="3">
+                </div>
+                <div class="form-group">
+                    <label data-en="Number of Travelers" data-hi="यात्रियों की संख्या" data-te="ప్రయాణికుల సంఖ్య">Number of Travelers</label>
+                    <input type="number" id="travelers" min="1" max="20" value="2">
+                </div>
+                <div class="form-group">
+                    <label data-en="Budget Type" data-hi="बजट प्रकार" data-te="బడ్జెట్ రకం">Budget Type</label>
+                    <select id="budgetType">
+                        <option value="low">Budget (Low Cost)</option>
+                        <option value="medium" selected>Standard (Medium Cost)</option>
+                        <option value="high">Luxury (High Cost)</option>
+                    </select>
+                </div>
+                <button type="button" class="submit-btn eco-action" onclick="jharkhandTourism.calculateTripBudget()">
+                    <span data-en="Calculate Budget" data-hi="बजट की गणना करें" data-te="బడ్జెట్ లెక్కించండి">Calculate Budget</span>
+                </button>
+                <div id="budgetResult" class="budget-result"></div>
+            </div>
+
+            <!-- Enhanced Future Footprint Calculator -->
+            <div id="footprintCalculator" class="form-container">
+                <h3 style="margin-bottom: 20px; color: white;" 
+                    data-en="🌱 Future Footprint - Smart Route Planner" data-hi="🌱 भविष्य पदचिह्न - स्मार्ट मार्ग योजनाकार" data-te="🌱 ఫ్యూచర్ ఫుట్‌ప్రింట్ - స్మార్ట్ రూట్ ప్లానర్">
+                    🌱 Future Footprint - Smart Route Planner
+                </h3>
+                
+                <div class="footprint-tabs">
+                    <button class="footprint-tab active" onclick="switchFootprintTab('route')">
+                        <i class="fas fa-route"></i> Route Planning
+                    </button>
+                    <button class="footprint-tab" onclick="switchFootprintTab('impact')">
+                        <i class="fas fa-leaf"></i> Impact Analysis
+                    </button>
+                    <button class="footprint-tab" onclick="switchFootprintTab('sustainable')">
+                        <i class="fas fa-recycle"></i> Eco Options
+                    </button>
+                </div>
+
+                <div id="routeTab" class="footprint-tab-content active">
+                    <div class="form-group">
+                        <label data-en="From Location" data-hi="से स्थान" data-te="నుండి స్థానం">From Location</label>
+                        <select id="fromLocation">
+                            <option value="">Select Starting Point</option>
+                            <option value="Ranchi">Ranchi (Capital City)</option>
+                            <option value="Jamshedpur">Jamshedpur (Steel City)</option>
+                            <option value="Dhanbad">Dhanbad (Coal Capital)</option>
+                            <option value="Bokaro">Bokaro (Steel City)</option>
+                            <option value="Deoghar">Deoghar (Temple Town)</option>
+                            <option value="Hazaribagh">Hazaribagh (Hill Station)</option>
+                            <option value="Giridih">Giridih (Coal Town)</option>
+                            <option value="Chaibasa">Chaibasa (Tribal Hub)</option>
+                            <option value="Dumka">Dumka (Santhal Region)</option>
+                            <option value="Palamu">Palamu (Tiger Reserve)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="To Location" data-hi="तक स्थान" data-te="వరకు స్థానం">To Location</label>
+                        <select id="toLocation">
+                            <option value="">Select Destination</option>
+                            <option value="Ranchi">Ranchi (Capital City)</option>
+                            <option value="Jamshedpur">Jamshedpur (Steel City)</option>
+                            <option value="Dhanbad">Dhanbad (Coal Capital)</option>
+                            <option value="Bokaro">Bokaro (Steel City)</option>
+                            <option value="Deoghar">Deoghar (Temple Town)</option>
+                            <option value="Hazaribagh">Hazaribagh (Hill Station)</option>
+                            <option value="Giridih">Giridih (Coal Town)</option>
+                            <option value="Chaibasa">Chaibasa (Tribal Hub)</option>
+                            <option value="Dumka">Dumka (Santhal Region)</option>
+                            <option value="Palamu">Palamu (Tiger Reserve)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Travel Mode" data-hi="यात्रा का तरीका" data-te="ప్రయాణ మార్గం">Travel Mode</label>
+                        <select id="travelMode">
+                            <option value="car">🚗 Private Car</option>
+                            <option value="bus">🚌 Public Bus</option>
+                            <option value="train">🚂 Train</option>
+                            <option value="bike">🏍️ Motorcycle</option>
+                            <option value="cycle">🚴 Bicycle (Eco-Friendly)</option>
+                            <option value="walk">🚶 Walking</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Number of Travelers" data-hi="यात्रियों की संख्या" data-te="ప్రయాణికుల సంఖ్య">Number of Travelers</label>
+                        <input type="number" id="travelerCount" min="1" max="20" value="2" class="form-input">
+                    </div>
+                </div>
+
+                <div id="impactTab" class="footprint-tab-content">
+                    <div class="impact-metrics">
+                        <h4>🌍 Environmental Impact Factors</h4>
+                        <div class="metric-item">
+                            <label>
+                                <input type="checkbox" id="carbonOffset" checked>
+                                Include Carbon Offset Calculation
+                            </label>
+                        </div>
+                        <div class="metric-item">
+                            <label>
+                                <input type="checkbox" id="fuelConsumption" checked>
+                                Fuel Consumption Analysis
+                            </label>
+                        </div>
+                        <div class="metric-item">
+                            <label>
+                                <input type="checkbox" id="airQuality" checked>
+                                Air Quality Impact
+                            </label>
+                        </div>
+                        <div class="metric-item">
+                            <label>
+                                <input type="checkbox" id="noiseImpact">
+                                Noise Pollution Assessment
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sustainableTab" class="footprint-tab-content">
+                    <div class="eco-options">
+                        <h4>♻️ Sustainable Travel Options</h4>
+                        <div class="eco-option">
+                            <i class="fas fa-leaf"></i>
+                            <div>
+                                <h5>Public Transportation</h5>
+                                <p>Use buses and trains to reduce individual carbon footprint</p>
+                            </div>
+                        </div>
+                        <div class="eco-option">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h5>Carpooling</h5>
+                                <p>Share rides with other travelers going to the same destination</p>
+                            </div>
+                        </div>
+                        <div class="eco-option">
+                            <i class="fas fa-tree"></i>
+                            <div>
+                                <h5>Carbon Offset Programs</h5>
+                                <p>Plant trees to offset your travel emissions</p>
+                            </div>
+                        </div>
+                        <div class="eco-option">
+                            <i class="fas fa-bicycle"></i>
+                            <div>
+                                <h5>Eco-Friendly Vehicles</h5>
+                                <p>Choose electric or hybrid vehicles when available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="submit-btn eco-action" onclick="jharkhandTourism.calculateFootprintEnhanced()">
+                    <span data-en="🔍 Analyze Route & Impact" data-hi="🔍 मार्ग और प्रभाव का विश्लेषण करें" data-te="🔍 రూట్ & ప్రభావం విశ్లేషించండి">🔍 Analyze Route & Impact</span>
+                </button>
+                <div id="footprintResult" class="budget-result"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title" data-en="Contact Us" data-hi="हमसे संपर्क करें" data-te="మమ్మల్ని సంప్రదించండి">
+                Contact Us
+            </h2>
+            <form id="contactForm" class="form-container">
+                <div class="form-group">
+                    <label data-en="Name" data-hi="नाम" data-te="పేరు">Name</label>
+                    <input type="text" id="contactName" value="Debug Pirates" required>
+                </div>
+                <div class="form-group">
+                    <label data-en="Email" data-hi="ईमेल" data-te="ఇమెయిల్">Email</label>
+                    <input type="email" id="contactEmail" value="shidn@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label data-en="Phone" data-hi="फोन" data-te="ఫోన్">Phone</label>
+                    <input type="tel" id="contactPhone" value="9134562825" required>
+                </div>
+                <div class="form-group">
+                    <label data-en="Message" data-hi="संदेश" data-te="సందేశం">Message</label>
+                    <textarea id="contactMessage" rows="5" 
+                              placeholder="Tell us about your travel plans..." 
+                              data-en-placeholder="Tell us about your travel plans..." 
+                              data-hi-placeholder="हमें अपनी यात्रा योजनाओं के बारे में बताएं..." 
+                              data-te-placeholder="మీ ప్రయాణ ప్రణాళికల గురించి మాకు చెప్పండి..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn eco-action">
+                    <span data-en="Send Message" data-hi="संदेश भेजें" data-te="సందేశం పంపండి">Send Message</span>
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Enhanced Souvenir Scanner Modal -->
+    <div id="scannerModal" class="scanner-modal">
+        <div class="scanner-content">
+            <div class="scanner-header">
+                <h3 data-en="🔍 Souvenir Scanner" data-hi="🔍 स्मृति चिन्ह स्कैनर" data-te="🔍 స్మారక స్కానర్">🔍 Souvenir Scanner</h3>
+                <button class="scanner-close" onclick="jharkhandTourism.closeScannerModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="scanner-tabs">
+                <button class="scanner-tab active" onclick="switchScannerTab('camera')">
+                    <i class="fas fa-camera"></i> Camera Scan
+                </button>
+                <button class="scanner-tab" onclick="switchScannerTab('upload')">
+                    <i class="fas fa-upload"></i> Upload Image
+                </button>
+                <button class="scanner-tab" onclick="switchScannerTab('search')">
+                    <i class="fas fa-search"></i> Search Item
+                </button>
+            </div>
+
+            <div id="cameraTab" class="scanner-tab-content active">
+                <div class="scanner-video-container">
+                    <video id="scannerVideo" class="scanner-video" autoplay></video>
+                    <div class="scanner-overlay">
+                        <div class="scan-frame"></div>
+                        <p class="scan-instruction">Position the souvenir within the frame</p>
+                    </div>
+                    <button class="capture-btn" onclick="captureImage()">
+                        <i class="fas fa-camera"></i> Capture
+                    </button>
+                </div>
+            </div>
+
+            <div id="uploadTab" class="scanner-tab-content">
+                <div class="upload-area" onclick="document.getElementById('imageUpload').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Click to upload an image or drag & drop</p>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
+                </div>
+            </div>
+
+            <div id="searchTab" class="scanner-tab-content">
+                <div class="search-container">
+                    <input type="text" id="souvenirSearch" placeholder="Search for Jharkhand souvenirs..." class="search-input">
+                    <button onclick="searchSouvenir()" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="popular-searches">
+                    <h4>Popular Searches:</h4>
+                    <div class="search-tags">
+                        <span class="search-tag" onclick="searchSpecificItem('dokra')">Dokra Art</span>
+                        <span class="search-tag" onclick="searchSpecificItem('bamboo')">Bamboo Crafts</span>
+                        <span class="search-tag" onclick="searchSpecificItem('sohrai')">Sohrai Paintings</span>
+                        <span class="search-tag" onclick="searchSpecificItem('tribal')">Tribal Jewelry</span>
+                        <span class="search-tag" onclick="searchSpecificItem('handloom')">Handloom Textiles</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="scanResult" class="scan-result-container"></div>
+        </div>
+    </div>
+
+    <!-- Chatbot Icon -->
+    <div class="chatbot-icon" onclick="toggleChatbot()">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div id="chatbotWindow" class="chatbot-window">
+        <div class="chatbot-window-header">
+            <h4>🌿 Jharkhand Tourism Assistant</h4>
+            <button class="chatbot-window-close" onclick="toggleChatbot()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbotMessages" class="chatbot-window-messages">
+            <div class="bot-message">
+                <p>Namaste! 🙏 Welcome to Jharkhand Tourism! I'm here to help you explore the beautiful state of Jharkhand.</p>
+                <p>Ask me about:</p>
+                <ul>
+                    <li>🏔️ Waterfalls & Nature spots</li>
+                    <li>🏛️ Temples & Heritage sites</li>
+                    <li>🍽️ Local food & cuisine</li>
+                    <li>🎉 Festivals & culture</li>
+                    <li>🦌 Wildlife & national parks</li>
+                </ul>
+            </div>
+        </div>
+        <div class="chatbot-window-input">
+            <input type="text" id="chatInput" placeholder="Ask about Jharkhand tourism..." onkeypress="handleChatKeyPress(event)">
+            <button onclick="sendChatMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Comprehensive Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-en="Discover Jharkhand" data-hi="झारखंड खोजें" data-te="జార్ఖండ్‌ను కనుగొనండి">Discover Jharkhand</h3>
+                <ul>
+                    <li><a href="#" data-en="Tourism Overview" data-hi="पर्यटन अवलोकन" data-te="టూరిజం అవలోకనం">Tourism Overview</a></li>
+                    <li><a href="#destinations" data-en="Top 10 Destinations" data-hi="शीर्ष 10 गंतव्य" data-te="టాప్ 10 గమ్యస్థానాలు">Top 10 Destinations</a></li>
+                    <li><a href="#" data-en="Adventure Tourism" data-hi="साहसिक पर्यटन" data-te="అడ్వెంచర్ టూరిజం">Adventure Tourism</a></li>
+                    <li><a href="#" data-en="Eco-Tourism" data-hi="पारिस्थितिकी पर्यटन" data-te="ఎకో-టూరిజం">Eco-Tourism</a></li>
+                    <li><a href="#" data-en="Heritage Tourism" data-hi="विरासत पर्यटन" data-te="హెరిటేజ్ టూరిజం">Heritage Tourism</a></li>
+                    <li><a href="#" data-en="Tribal Tourism" data-hi="आदिवासी पर्यटन" data-te="గిరిజన పర్యటనం">Tribal Tourism</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-en="Accommodations" data-hi="आवास" data-te="వసతి">Accommodations</h3>
+                <ul>
+                    <li><a href="#hotels" data-en="Hotels & Resorts" data-hi="होटल और रिसॉर्ट्स" data-te="హోటళ్లు & రిసార్ట్‌లు">Hotels & Resorts</a></li>
+                    <li><a href="#" data-en="Eco Resorts" data-hi="इको रिसॉर्ट्स" data-te="ఎకో రిసార్ట్‌లు">Eco Resorts</a></li>
+                    <li><a href="#" data-en="Tribal Homestays" data-hi="आदिवासी होमस्टे" data-te="గిరిజన హోమ్‌స్టేలు">Tribal Homestays</a></li>
+                    <li><a href="#" data-en="Forest Lodges" data-hi="वन लॉज" data-te="అడవి లాడ్జీలు">Forest Lodges</a></li>
+                    <li><a href="#" data-en="Budget Stays" data-hi="बजट आवास" data-te="బడ్జెట్ స్టేలు">Budget Stays</a></li>
+                    <li><a href="#" data-en="Camping Sites" data-hi="कैंपिंग साइट्स" data-te="క్యాంపింగ్ సైట్‌లు">Camping Sites</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-en="Top Attractions" data-hi="मुख्य आकर्षण" data-te="ప్రధాన ఆకర్షణలు">Top Attractions</h3>
+                <ul>
+                    <li><a href="#" data-en="Waterfalls" data-hi="झरने" data-te="జలపాతాలు">Waterfalls (Hundru, Dassam, Jonha)</a></li>
+                    <li><a href="#" data-en="Temples" data-hi="मंदिर" data-te="దేవాలయాలు">Temples (Baidyanath, Parasnath)</a></li>
+                    <li><a href="#" data-en="Wildlife Sanctuaries" data-hi="वन्यजीव अभयारण्य" data-te="వన్యప్రాణి అభయారణ్యాలు">Wildlife (Betla, Dalma)</a></li>
+                    <li><a href="#" data-en="Museums" data-hi="संग्रहालय" data-te="మ్యూజియంలు">Museums (Ranchi, Tribal)</a></li>
+                    <li><a href="#" data-en="Dams & Lakes" data-hi="बांध और झीलें" data-te="ఆనకట్టలు & సరస్సులు">Dams & Lakes</a></li>
+                    <li><a href="#" data-en="Hill Stations" data-hi="पहाड़ी स्टेशन" data-te="కొండ స్టేషన్లు">Hill Stations (Netarhat)</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-en="Culture & Heritage" data-hi="संस्कृति और विरासत" data-te="సంస్కృతి & వారసత్వం">Culture & Heritage</h3>
+                <ul>
+                    <li><a href="#festivals" data-en="Festivals" data-hi="त्योहार" data-te="పండుగలు">Festivals (Sarhul, Karma, Sohrai)</a></li>
+                    <li><a href="#" data-en="Tribal Dance" data-hi="आदिवासी नृत्य" data-te="గిరిజన నృత్యం">Tribal Dance (Chhau, Jhumar)</a></li>
+                    <li><a href="#" data-en="Art & Craft" data-hi="कला और शिल्प" data-te="కళ & హస్తకళలు">Art & Craft (Dokra, Sohrai)</a></li>
+                    <li><a href="#" data-en="Traditional Food" data-hi="पारंपरिक भोजन" data-te="సాంప్రదాయ ఆహారం">Traditional Food</a></li>
+                    <li><a href="#" data-en="Tribal Communities" data-hi="आदिवासी समुदाय" data-te="గిరిజన సమాజాలు">Tribal Communities</a></li>
+                    <li><a href="#" data-en="Local Markets" data-hi="स्थानीय बाजार" data-te="స్థానిక మార్కెట్లు">Local Markets</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-en="Travel Services" data-hi="यात्रा सेवाएं" data-te="ప్రయాణ సేవలు">Travel Services</h3>
+                <ul>
+                    <li><a href="#guides" data-en="Tour Guide Booking" data-hi="टूर गाइड बुकिंग" data-te="టూర్ గైడ్ బుకింగ్">Tour Guide Booking</a></li>
+                    <li><a href="#" data-en="Transportation" data-hi="परिवहन" data-te="రవాణా">Transportation</a></li>
+                    <li><a href="#" data-en="Travel Packages" data-hi="यात्रा पैकेज" data-te="ట్రావెల్ ప్యాకేజీలు">Travel Packages</a></li>
+                    <li><a href="#" data-en="Travel Insurance" data-hi="यात्रा बीमा" data-te="ట్రావెల్ ఇన్సూరెన్స్">Travel Insurance</a></li>
+                    <li><a href="#" data-en="Permits & Bookings" data-hi="अनुमति और बुकिंग" data-te="అనుమతులు & బుకింగ్‌లు">Permits & Bookings</a></li>
+                    <li><a href="#contact" data-en="Contact Us" data-hi="हमसे संपर्क करें" data-te="మమ్మల్ని సంప్రదించండి">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-en="Important Information" data-hi="महत्वपूर्ण जानकारी" data-te="ముఖ్యమైన సమాచారం">Important Information</h3>
+                <ul>
+                    <li><a href="#" data-en="Emergency Services" data-hi="आपातकालीन सेवाएं" data-te="అత్యవసర సేవలు">Emergency Services</a></li>
+                    <li><a href="#" data-en="Police Stations" data-hi="पुलिस स्टेशन" data-te="పోలీస్ స్టేషన్లు">Police Stations</a></li>
+                    <li><a href="#" data-en="Hospitals" data-hi="अस्पताल" data-te="ఆసుపత్రులు">Hospitals</a></li>
+                    <li><a href="#" data-en="Weather Updates" data-hi="मौसम अपडेट" data-te="వాతావరణ అప్‌డేట్‌లు">Weather Updates</a></li>
+                    <li><a href="#" data-en="Travel Guidelines" data-hi="यात्रा दिशानिर्देश" data-te="ప్రయాణ మార్గదర్శకాలు">Travel Guidelines</a></li>
+                    <li><a href="#" data-en="Safety Tips" data-hi="सुरक्षा सुझाव" data-te="భద్రతా చిట్కాలు">Safety Tips</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-newsletter">
+            <div class="newsletter-content">
+                <h3 data-en="Stay Updated" data-hi="अपडेट रहें" data-te="అప్‌డేట్‌గా ఉండండి">Stay Updated</h3>
+                <p data-en="Subscribe to our newsletter for latest updates on Jharkhand tourism" 
+                   data-hi="झारखंड पर्यटन की नवीनतम जानकारी के लिए हमारे न्यूजलेटर की सदस्यता लें" 
+                   data-te="జార్ఖండ్ టూరిజంపై తాజా అప్‌డేట్‌ల కోసం మా న్యూస్‌లెటర్‌కు సబ్‌స్క్రైబ్ చేయండి">
+                   Subscribe to our newsletter for latest updates on Jharkhand tourism
+                </p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" 
+                           data-en-placeholder="Enter your email" 
+                           data-hi-placeholder="अपना ईमेल दर्ज करें" 
+                           data-te-placeholder="మీ ఇమెయిల్ నమోదు చేయండి">
+                    <button type="submit" data-en="Subscribe" data-hi="सदस्यता लें" data-te="సబ్‌స్క్రైబ్ చేయండి">Subscribe</button>
+                </div>
+            </div>
+            <div class="language-selector">
+                <h4 data-en="Language" data-hi="भाषा" data-te="భాష">Language</h4>
+                <div class="language-options">
+                    <button onclick="changeLanguage('en')" class="lang-btn active" data-lang="en">English</button>
+                    <button onclick="changeLanguage('hi')" class="lang-btn" data-lang="hi">हिंदी</button>
+                    <button onclick="changeLanguage('te')" class="lang-btn" data-lang="te">తెలుగు</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <h2 data-en="Jharkhand Tourism" data-hi="झारखंड पर्यटन" data-te="జార్ఖండ్ టూరిజం">Jharkhand Tourism</h2>
+                    <p data-en="Discover the Land of Forests" data-hi="वनों की भूमि की खोज करें" data-te="అడవుల భూమిని కనుగొనండి">Discover the Land of Forests</p>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-phone"></i> +91-651-2446441</p>
+                    <p><i class="fas fa-envelope"></i> info@jharkhandtourism.gov.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Tourism Department, Jharkhand</p>
+                </div>
+            </div>
+            
+            <div class="footer-social">
+                <h4 data-en="Follow Us" data-hi="हमें फॉलो करें" data-te="మమ్మల్ని అనుసరించండి">Follow Us</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-certifications">
+                <h4 data-en="Certifications" data-hi="प्रमाणन" data-te="ధృవీకరణలు">Certifications</h4>
+                <div class="cert-badges">
+                    <span class="cert-badge" data-en="ISO Certified" data-hi="ISO प्रमाणित" data-te="ISO సర్టిఫైడ్">ISO Certified</span>
+                    <span class="cert-badge" data-en="Eco Tourism" data-hi="इको टूरिज्म" data-te="ఎకో టూరిజం">Eco Tourism</span>
+                    <span class="cert-badge" data-en="Sustainable Travel" data-hi="स्थायी यात्रा" data-te="స్థిరమైన ప్రయాణం">Sustainable Travel</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-copyright">
+            <p>&copy; 2024 Jharkhand Tourism Board. All rights reserved. | 
+               <a href="#" data-en="Privacy Policy" data-hi="गोपनीयता नीति" data-te="గోప్యతా విధానం">Privacy Policy</a> | 
+               <a href="#" data-en="Terms of Service" data-hi="सेवा की शर्तें" data-te="సేవా నిబంధనలు">Terms of Service</a> | 
+               <a href="#" data-en="Accessibility" data-hi="पहुंच" data-te="ప్రాప్యత">Accessibility</a>
+            </p>
+            <p class="footer-tagline">
+               <span data-en="Promoting Sustainable & Responsible Tourism in the Heart of India" 
+                     data-hi="भारत के हृदय में स्थायी और जिम्मेदार पर्यटन को बढ़ावा देना" 
+                     data-te="భారతదేశం గుండెలో స్థిరమైన & బాధ్యతాయుత పర్యటనను ప్రోత్సహించడం">
+                   Promoting Sustainable & Responsible Tourism in the Heart of India
+               </span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script>
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            jharkhandTourism.init();
+            jharkhandTourism.fetchWeather();
+            
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            let lastScrollY = window.scrollY;
+            
+            window.addEventListener('scroll', function() {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                lastScrollY = currentScrollY;
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                jharkhandTourism.submitContactForm();
+            });
+            
+            // Chat input enter key
+            document.getElementById('chatInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+
+        // Chatbot functions
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const chatbotIcon = document.getElementById('chatbotIcon');
+            
+            if (chatbotWindow.style.display === 'none' || chatbotWindow.style.display === '') {
+                chatbotWindow.style.display = 'flex';
+                chatbotIcon.style.display = 'none';
+            } else {
+                chatbotWindow.style.display = 'none';
+                chatbotIcon.style.display = 'flex';
+            }
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage(message, 'user');
+                input.value = '';
+                
+                // Generate bot response using the function from index.js
+                setTimeout(() => {
+                    const botResponse = generateChatResponse(message);
+                    addMessage(botResponse, 'bot');
+                }, 1000);
+            }
+        }
+
+        function addMessage(message, sender) {
+            const messagesContainer = document.getElementById('chatbotMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = sender === 'user' ? 'user-message' : 'bot-message';
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `<p>${message}</p>`;
+            } else {
+                messageDiv.innerHTML = `<p>${message}</p>`;
+            }
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+    </script>
+</body>
+</html>

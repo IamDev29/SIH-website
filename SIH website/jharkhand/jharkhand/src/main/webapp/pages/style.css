@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('../pic/weather.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.container {
+    text-align: center;
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 35px 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 420px;
+    max-width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: cardPop 0.8s ease;
+}
+
+@keyframes cardPop {
+    0% { transform: scale(0.7) rotate(-5deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.weather-card:hover {
+    transform: scale(1.06) rotate(1deg);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+#city-input {
+    padding: 12px;
+    width: 70%;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+#city-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+    box-shadow: 0 0 8px #1565C0;
+}
+
+#city-input::placeholder {
+    color: #666;
+    font-style: italic;
+}
+
+#city-input-btn {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #1565C0, #00BCD4);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#city-input-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #0d3c7b, #00838F);
+}
+
+#weather-info {
+    display: none;
+    margin-top: 20px;
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#weather-icon {
+    width: 100px;
+    height: 100px;
+    margin: 10px 0;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+#temperature {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 8px 0;
+    color: #1565C0;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+#description {
+    font-size: 20px;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+    color: #333;
+}
+
+#wind-speed, #date {
+    font-size: 16px;
+    font-weight: 500;
+    color: #FF5252;
+}
+
+/* Danger Animations */
+.danger-alert {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.danger-card {
+    background: rgba(255, 0, 0, 0.15) !important;
+    box-shadow: 0 10px 40px rgba(255, 0, 0, 0.5) !important;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+}
